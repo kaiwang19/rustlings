@@ -10,8 +10,8 @@ mod tests {
     fn move_semantics4() {
         let mut x = Vec::new();
         let y = &mut x;
+        y.push(42); // you must use y to push the value 42 into the vector, otherwise the mutabtable borrow is unused
         let z = &mut x;
-        y.push(42);
         z.push(13);
         assert_eq!(x, [42, 13]);
     }

@@ -3,13 +3,15 @@
 // TODO: Fix the compiler errors without changing anything except adding or
 // removing references (the character `&`).
 
+// https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html
 // Shouldn't take ownership
-fn get_char(data: String) -> char {
+fn get_char(data: &String) -> char {
     data.chars().last().unwrap()
 }
 
+// https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html
 // Should take ownership
-fn string_uppercase(mut data: &String) {
+fn string_uppercase(mut data: String) {
     data = data.to_uppercase();
 
     println!("{data}");
@@ -18,7 +20,7 @@ fn string_uppercase(mut data: &String) {
 fn main() {
     let data = "Rust is great!".to_string();
 
-    get_char(data);
+    get_char(&data);
 
-    string_uppercase(&data);
+    string_uppercase(data);
 }
