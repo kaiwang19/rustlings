@@ -32,6 +32,8 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
         // TODO: Insert new fruits if they are not already present in the
         // basket. Note that you are not allowed to put any type of fruit that's
         // already present!
+        // https://doc.rust-lang.org/book/ch08-03-hash-maps.html
+        basket.entry(fruit).or_insert(1);
     }
 }
 
